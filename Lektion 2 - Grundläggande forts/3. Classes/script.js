@@ -35,3 +35,28 @@ var pc3 = new Person('Daniel','Wessén')
 console.log(pc1)
 console.log(pc2)
 console.log(pc3)
+
+
+class Car {
+    constructor(carBrand, carModel, carYear, carColor, carEngine) {
+        this.carBrand = carBrand
+        this.carModel = carModel
+        this.carYear = carYear
+        this.carColor = carColor
+        this.carEngine = carEngine
+    }
+
+    carSpecc() {
+        return `${this.carBrand} ${this.carModel} ${this.carYear} ${this.carColor} ${this.carEngine}`
+    }
+}
+
+let car1 = new Car('Audi' , 'R8' , '2008' , 'Daytona Gray' , 'V8')
+let car2 = new Car('Audi' , 'R8' , '2010' , 'Black' , 'V10')
+let car3 = new Car('Audi' , 'TT-RS' , '2017' , 'Pearl White' , 'V6 Twin Turbo')
+
+console.log(car1)
+console.log(car2)
+console.log(car3)
+
+
