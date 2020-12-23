@@ -43,19 +43,19 @@
 //     console.log(array)
 // })
 
-document.getElementById('input').addEventListener('keyup', (e) => {
-    validateInputLength(e)
-})
+// document.getElementById('input').addEventListener('keyup', (e) => {
+//     validateInputLength(e)
+// })
 
 
-function validateInputLength(e) {
-    if(e.target.value.length < 4) {
-        document.getElementById('results').innerText = 'För få tecken i ' +e.target.id
-        document.getElementById('add_btn').disabled = true
-    }
+// function validateInputLength(e) {
+//     if(e.target.value.length < 4) {
+//         document.getElementById('results').innerText = 'För få tecken i ' +e.target.id
+//         document.getElementById('add_btn').disabled = true
+//     }
 
-    else {
-        document.getElementById('results').innerText = ''
-        document.getElementById('add_btn').disabled = false
-    }
-}
+//     else {
+//         document.getElementById('results').innerText = ''
+//         document.getElementById('add_btn').disabled = false
+//     }
+// }
