@@ -1,0 +1,11 @@
+grön bock vid lyckade värden
+rött kryss vid misslyckade värden
+
+
+models
+\\users.js
+
+functions
+\\functions.js
+
+Se till att Förnamn och Efternamn börjar med stor bokstav
