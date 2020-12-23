@@ -119,3 +119,4 @@
         var citrus = fruits.slice(1)
 
         console.log(citrus)
+    
