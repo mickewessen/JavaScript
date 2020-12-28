@@ -10,7 +10,7 @@
         border: 1px solid rgba(0,0,0,0.1); 
 
         @include md {
-            max-width: 40rem;
+            max-width: 60rem;
         }
 
         h1 {
@@ -35,9 +35,12 @@
         input[type=text] {
             font-size: 0.8rem;
         }
+        input[type=password] {
+            font-size: 0.8rem;
+        }
         
 
-        select[id=country] {
+        select[id=city] {
             font-size: 0.8rem;
             color: $darkgray;
 
@@ -52,7 +55,6 @@
 
             .checkbox {
                 font-size: 0.8rem;
-                padding: 1rem;
 
                 a {
                     font-size: 0.8rem;
@@ -60,4 +62,16 @@
             }
         }
     }
+
+    #panel, #flip {
+        padding: 5px;
+        text-align: center;
+        background-color: #e5eecc;
+        border: solid 1px #c3c3c3;
+      }
+      
+      #panel {
+        padding: 50px;
+        display: none;
+      }
 }
