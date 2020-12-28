@@ -1,0 +1,63 @@
+#container {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    .registration {
+        max-width: 20rem;
+        padding: 1rem 2rem 3rem;
+        margin: 0 auto;
+        background-color: $white;
+        border: 1px solid rgba(0,0,0,0.1); 
+
+        @include md {
+            max-width: 40rem;
+        }
+
+        h1 {
+            color: $darkgray;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1); 
+
+            i {
+                font-size: 2rem;
+                color: $lightblue;
+            }
+        }
+        h3 {
+            color: $darkgray;
+            text-align: left;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        input[type=text] {
+            font-size: 0.8rem;
+        }
+        
+
+        select[id=country] {
+            font-size: 0.8rem;
+            color: $darkgray;
+
+            option {
+                font-size: 0.8rem;
+            }
+        }
+
+        .terms-gdpr {
+            text-align: left;
+            margin-bottom: 1rem;
+
+            .checkbox {
+                font-size: 0.8rem;
+                padding: 1rem;
+
+                a {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+}
