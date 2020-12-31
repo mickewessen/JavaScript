@@ -82,6 +82,7 @@ mail.addEventListener('keyup', e => {
   if(mailvalidate.test(mail.value)) {
     document.getElementById('email').style.border = "3px solid green"
     document.getElementById(`${e.target.id}-error`).innerText = ''
+    
   }  
   else {
     document.getElementById('email').style.border = "3px solid red"
