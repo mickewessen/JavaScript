@@ -15,48 +15,57 @@
 
     <div id="container">
         <div class="registration">
-            <form class="text-center p5">
-                <h1 class="sign-in-header">Sign up <i class="fas fa-user-plus"></i></h1>  
-                <h3>Login information</h3>           
-                <input type="text" id="email" class="form-control mb-4" placeholder="E-mail">
+            <form id="regform" action="" class="text-center p5">
+                <h1 class="sign-in-header">Create user <i class="fas fa-user-plus"></i></h1>        
+                <h3>Personal information</h3>  
+                
+                <div class="form-row">
+                    <div class="col-sm mb-4">
+                        <input type="text" id="firstName" class="form-control" placeholder="Firstname">
+                        <div id="firstName-error"class="error1"></div>
+                    </div>
+                    <div class="col-sm mb-4">
+                        <input type="text" id="lastName" class="form-control" placeholder="Lastname">
+                        <div id="lastName-error" class="error"></div>
+                    </div>                               
+                </div>
 
                 <div class="form-row">
-                    <div class="col-sm mb-4">
-                        <input type="password" id="password1" class="form-control" placeholder="Password">
+                    <div class="col-lg-9 mb-4">
+                        <input type="text" id="email" class="form-control" placeholder="E-mail">
+                        <div id="email-error" class="error"></div>
+
                     </div>
-                    <div class="col-sm mb-2">
-                        <input type="password" id="password2" class="form-control" placeholder="Password Confirmation">
+                    <div class="col mb-4">
+                        <input type="text" id="phoneNumber" class="form-control" placeholder="Phonenumber">
+                        <div id="phoneNumber-error" class="error"></div>
+
                     </div>
-                </div>
-                <h3>Personal information</h3>  
-                <div class="form-row">
-                    <div class="col-sm mb-4">
-                        <input type="text" id="firstname" class="form-control" placeholder="Firstname">
-                        <div id="results"></div>
-                    </div>
-                    <div class="col-sm mb-4">
-                        <input type="text" id="lastname" class="form-control" placeholder="Lastname">
-                    </div>                    
-                    <div class="col-sm mb-4">
-                        <input type="text" id="phone" class="form-control" placeholder="Phonenumber">
-                    </div>                    
+
                 </div>
 
                 <div class="form-row mb-4">
                     <div class="col-lg-6 mb-4">
                         <input type="text" id="street" class="form-control" placeholder="Street">
+                        <div id="street-error" class="error"></div>
+
                     </div>
                     <div class="col">
                         <input type="text" id="postalCode" class="form-control" placeholder="Postal code">
+                        <div id="postalCode-error" class="error"></div>
+
                     </div>     
                     <div class="col">
                         <select id="city" name="city" class="form-control">
+                            <option value=""></option>
                             <option value="Örebro">Örebro</option>
                             <option value="Kumla">Kumla</option>
                             <option value="Hallsberg">Hallsberg</option>
                             <option value="Laxå">Laxå</option>
                             <option value="Askersund">Askersund</option>
                         </select>
+                        <div id="city-error" class="error"></div>
+
                     </div>                
                 </div>
 
@@ -66,14 +75,28 @@
                     <label class="checkbox"><input type="checkbox" value="gdpr" id="gdpr"> Click here to accept <a href="https://sv.wikipedia.org/wiki/Dataskyddsf%C3%B6rordningen" target="_blank">GDPR</a></label>    
                 </div>
 
-                <button id="button" class="btn btn-lg btn-primary btn-block disabled" type="submit">Sign up</button> 
-            </form>
+                <button id="button" class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button> 
+                <br>
+                <div id="listItem">
+                    <div id="flip">Förnamn & Efternamn</div>
+                    <div id="panel">
+                        <div class="container">
+                            <div>
+                                <div id="listFullName">För & Efternamn</div>
+                                <div id="listId">Id</div>
+                                <div id="listEmail">Email</div>
+                                <div id="listPhone">000-0000000</div>
+                            </div>
 
-            <div id="flip">Click to slide down panel</div>
-            <div id="panel">Hello world!</div>
+                            <div>
+                                <div id="listStreet">Gataadress</div>
+                                <div id="listPostalCode">000 000 Stad</div>
+                            </div>    
+                        </div>                   
+                    </div>
+                </div>
+            </form>            
         </div>
-
-
     </div>
     
 
@@ -81,6 +104,7 @@
     
     <script type="module" src="js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 </body>
