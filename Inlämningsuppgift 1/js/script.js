@@ -8,6 +8,7 @@ $(document).ready(function(){
 // Lista över användare
 
 let users= [];
+console.log(users)
 
 // Lägg till användare i users
 
@@ -110,6 +111,17 @@ document.getElementById('postalCode').addEventListener('keyup', (e) => {
 })
 
 // validera City
+
+
+
+
+
+
+
+// Event Submit
+document.addEventListener('DOMContentLoaded', ()=>{
+  document.getElementById('button').addEventListener('click', addUser);
+});
 
 
 
