@@ -63,7 +63,8 @@ for (let input of inputs) {
             document.getElementById(`${e.target.id}-error`).innerText = 'För få tecken '
             document.getElementById(`${e.target.id}`).style.border = "3px solid red"
             document.getElementById('button').disabled = true;
-            }
+            } 
+
         else {
             document.getElementById(`${e.target.id}-error`).innerText = ''
             document.getElementById(`${e.target.id}`).style.border = "3px solid green"
@@ -108,10 +109,8 @@ document.getElementById('postalCode').addEventListener('keyup', (e) => {
     }
 })
 
+// validera City
 
-document.addEventListener('DOMContentLoaded', ()=>{
-    document.getElementById('button').addEventListener('click', addUser);
-});
 
 
 
