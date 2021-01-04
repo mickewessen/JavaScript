@@ -1,0 +1,31 @@
+NPM
+----------------------------------------------------------------------------------------------
+npmjs.com
+
+npm init                                        skapar package.json
+npm install                                     installerar alla dependecies i ett project
+npm install <package name>                      installerar npm paketet lokalt i projektet
+npm install <package name> -g                   installerar npm paketet globalt
+npm install <package name> --save-dev           installerar npm paketet endast för utveckling
+
+
+
+ex.
+npm init
+npm install create-react-app -globalt
+npm install bootstrap
+
+
+
+BABEL
+-----------------------------------------------------------------------------------------------
+
+babel konverterar es6+ till äldre javascriptskod såsom es5
+babeljs.io
+
+
+WEBPACK
+-----------------------------------------------------------------------------------------------
+
+buntar ihop dina script till statiska tillgångar för webbläsaren
+webpack.js.org
