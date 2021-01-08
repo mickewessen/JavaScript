@@ -81,6 +81,19 @@
             padding: 2rem;
             display: flex;
             justify-content: space-between;
-        }       
+
+            label {
+                font-weight: bold;
+                font-size: 0.8rem;
+            }
+
+            .listinfo {
+                margin-left: 1rem;
+                text-align: right;
+                font-size: 0.8rem;
+            }
+
+        }   
+           
       }
 }

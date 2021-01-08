@@ -37,11 +37,13 @@ const addUser = (e) => {
 
     // Rubrik på drop-down listan
     let flip = document.querySelector('#flip');
-    flip.textContent = `${user.firstName }` + `${user.lastName}`;
+    flip.textContent = `${user.firstName }` + `${ user.lastName}`;
 
     // Innehåll i drop-down listan
-    let listFullName = document.querySelector('#listFullName')
-    listFullName.textContent = user.firstName + user.lastName;
+    let listFirstName = document.querySelector('#listFirstName')
+    listFirstName.textContent = user.firstName;
+    let listLastName = document.querySelector('#listLastName')
+    listLastName.textContent = user.lastName;
     let listId = document.querySelector('#listId')
     listId.textContent = user.id;
     let listEmail = document.querySelector('#listEmail')

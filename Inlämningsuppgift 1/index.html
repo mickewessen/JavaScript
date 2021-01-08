@@ -77,24 +77,53 @@
 
                 <button id="button" class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button> 
                 <br>
+
                 <div id="listItem">
                     <div id="flip">Förnamn & Efternamn</div>
                     <div id="panel">
                         <div class="container">
                             <div>
-                                <div id="listFullName">För & Efternamn</div>
-                                <div id="listId">Id</div>
-                                <div id="listEmail">Email</div>
-                                <div id="listPhone">000-0000000</div>
+                                <div class="d-flex justify-content-beetween">
+                                    <label for="listId">ID:</label>
+                                    <div id="listId" class="listinfo"></div>
+                                </div>
+                                <div class="d-flex justify-content-beetween">
+                                    <label for="listFirstName">Firstname:</label>
+                                    <div id="listFirstName" class="listinfo"></div>
+                                </div>
+                                <div class="d-flex justify-content-beetween">
+                                    <label for="listLastName">Lastname:</label>
+                                    <div id="listLastName" class="listinfo"></div>
+                                </div>
+                                <div class="d-flex justify-content-beetween">
+                                    <label for="listEmail">Email:</label>
+                                    <div id="listEmail" class="listinfo"></div>
+                                </div>
+                                <div class="d-flex justify-content-beetween">
+                                    <label for="listPhone">Phonenumber:</label>
+                                    <div id="listPhone" class="listinfo"></div>
+                                </div>
                             </div>
 
                             <div>
-                                <div id="listStreet">Gataadress</div>
-                                <div id="listPostalCode">000 000 Stad</div>
+                                <div>
+                                    <div class="d-flex justify-content-beetween">
+                                        <label for="listStreet">Street:</label>
+                                        <div id="listStreet" class="listinfo"></div> 
+                                    </div>
+                                    <div class="d-flex justify-content-beetween">
+                                        <label for="listPostalCode">City:</label>
+                                        <div id="listPostalCode" class="listinfo"></div>
+                                    </div>
+
+
+                                </div>                                
+
                             </div>    
                         </div>                   
                     </div>
                 </div>
+                
             </form>            
         </div>
     </div>
