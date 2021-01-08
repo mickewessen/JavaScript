@@ -16,3 +16,15 @@
     margin-left: 1.1rem;
     font-size: 1.1em;
 }
+
+.cp {
+    cursor: pointer;
+}
+
+.in-stock {
+    color: #A9D18E;
+}
+
+.out-of-stock {
+    color: #FFD966;
+}
