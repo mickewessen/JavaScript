@@ -1,0 +1,32 @@
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    @include md {
+        max-width: $breakpoint-md-max-width;
+    }
+    @include lg {
+        max-width: $breakpoint-lg-max-width;
+    }
+    @include xl {
+        max-width: $breakpoint-xl-max-width;
+    }
+    @include xxl {
+        max-width: $breakpoint-xxl-max-width;
+    }
+}
