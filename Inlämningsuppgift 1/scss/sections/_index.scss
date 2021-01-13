@@ -35,6 +35,11 @@
         input[type=text] {
             font-size: 0.8rem;
         }
+
+        input[type=number] {
+            font-size: 0.8rem;
+        }
+
         input[type=password] {
             font-size: 0.8rem;
         }
@@ -63,37 +68,22 @@
         }
     }
 
-    #flip {
-        padding: 0.5rem;
-        text-align: left;
-        background-color: white;
-        border: 1px solid rgba(0, 0, 0, 0.212);
-        padding-left: 2rem;
-        font-weight: bold;
-      }
-      
-      #panel {
-          background-color: white;
-          border: 1px solid rgba(0, 0, 0, 0.212);
+.flip {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+}   
 
-        .container {
-            text-align: left;
-            padding: 2rem;
-            display: flex;
-            justify-content: space-between;
+.panel, .flip {    
+    text-align: left;   
+    border: solid 1px #c3c3c3;
+}
 
-            label {
-                font-weight: bold;
-                font-size: 0.8rem;
-            }
-
-            .listinfo {
-                margin-left: 1rem;
-                text-align: right;
-                font-size: 0.8rem;
-            }
-
-        }   
-           
-      }
+.panel {
+    background-color: white;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    display: none;
+    }
 }

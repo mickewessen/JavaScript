@@ -1,134 +1,138 @@
+const users = [];
+
+function addUser () {
+
+   var user = {
+      id: Date.now(),  
+      firstname: document.getElementById('input-fname').value,
+      lastname: document.getElementById('input-lname').value,
+      email: document.getElementById('input-email').value,
+      phonenumber: document.getElementById('input-phonenumber').value,
+      street: document.getElementById('input-street').value,
+      postalcode: document.getElementById('input-postalcode').value,
+      city: document.getElementById('input-city').value,
+   };
+   
+// Lägger till användare i lista users
+   users.push(user);
+
+   
+// Skapar element (divar och knappar)
+   userDiv = document.createElement('div')
+   flipDiv = document.createElement('div')
+   panelDiv = document.createElement('div')
+   updateBtn = document.createElement('button')
+   removeBtn = document.createElement('button')
+
+
+// Ger div och knapp klass och id
+   flipDiv.className = "flip"
+   panelDiv.className = "panel"
+   userDiv.id = `${user.id}`
+   flipDiv.id = `${user.id}-flip`
+   panelDiv.id = `${user.id}-panel`
+   updateBtn.className = "btn btn-success mr-3"
+   updateBtn.setAttribute("onclick", "updateItem(this)")
+   removeBtn.className = "btn btn-danger"
+   removeBtn.setAttribute("onclick", "removeItem(this)");  
+
+   
+   flipDiv.innerText = `${user.firstname} ` + `${user.lastname}`
+   updateBtn.innerText = "Update user"
+   removeBtn.innerText = "Remove user"
+  
+
+   var currentDiv = document.getElementById('users');
+   currentDiv.appendChild(userDiv)
+   userDiv.appendChild(flipDiv)
+   userDiv.appendChild(panelDiv)
+
+
+// Fyll listan med userinfo
+   idElement = document.createElement("p")
+   idElement.innerText = `Id: ${user.id}`  
+
+   emailElement = document.createElement("p")
+   emailElement.innerText = `E-mail: ${user.email}`
+
+   phoneElement = document.createElement("p")
+   phoneElement.innerText = `Phone: ${user.phonenumber}`
+
+   streetElement = document.createElement("p")
+   streetElement.innerText = `Street: ${user.street}`
+
+   postalcodeElement = document.createElement("p")
+   postalcodeElement.innerText = `Phone: ${user.postalcode}`
+
+   cityElement = document.createElement("p")
+   cityElement.innerText = `City: ${user.city}`
+
+   panelDiv.appendChild(idElement)
+   panelDiv.appendChild(emailElement)
+   panelDiv.appendChild(phoneElement)
+   panelDiv.appendChild(streetElement)
+   panelDiv.appendChild(postalcodeElement)
+   panelDiv.appendChild(cityElement)
+   panelDiv.appendChild(updateBtn)
+   panelDiv.appendChild(removeBtn)
+
+} 
+
+// Inputs
+var inputfname = document.getElementById('input-fname');
+var inputlname = document.getElementById('input-lname');
+var inputEmail = document.getElementById('input-email');
+var inputPhonenumber = document.getElementById('input-phonenumber');
+var inputStreet = document.getElementById('input-street');
+var inputPostalCode = document.getElementById('input-postalcode');
+var inputCity = document.getElementById('input-city');
+var button = document.getElementById('submitbtn');
+var regEx = /\S+@\S+\.\S+/; // string, white-space, @ , white-space, dot, white-space, value, string //
+var form = document.getElementById('form');
+
+
+// Validering av formuläret
+
+function validateForm(){
+    if (inputfname.value !== "" && inputlname.value !== "" && regEx.test(inputEmail.value) && inputPhonenumber.value.length == 10 && inputStreet.value !== "" && inputPostalCode.value.length == 5 && inputCity.value !== ""){            
+       button.disabled = false;
+    } else {       
+       button.disabled = true;
+    }
+}
+
+// Updatera användaren
+
+// function updateItem(){
+
+// }
+
+
+// Ta bort användaren
+
+function removeItem(e){
+      let user = e.parentElement.value;
+      e.parentElement.remove();
+      users.splice(user,1);  
+}
+
+
+// Submit Event
+form.addEventListener('submit', function(e){
+     e.preventDefault();
+     addUser();
+     document.querySelector('form').reset(); 
+     button.disabled = true;
+     console.log(users)
+     console.log("submitted")
+})
+
 $(document).ready(function(){
-    $("#flip").click(function(){
-      $("#panel").slideToggle("slow");
-    });
+   $(".flip").click(function(){
+     $(".panel").slideToggle("slow");
+   });
 
-  });
-
-// Lista över användare
-
-let users= [];
-console.log(users)
-
-// Lägg till användare i users
-
-const addUser = (e) => {
-    e.preventDefault();  //to stop the form submitting
-
-    let user = {
-        id: Date.now(),
-        email: document.getElementById('email').value,
-        firstName: document.getElementById('firstName').value,
-        lastName: document.getElementById('lastName').value,
-        phoneNumber: document.getElementById('phoneNumber').value,
-        street: document.getElementById('street').value,
-        postalCode: document.getElementById('postalCode').value,
-        city: document.getElementById('city').value,
-
-    }
-    users.push(user);
-    
-    // rensa formuläret
-    document.forms[0].reset(); 
-    document.querySelector('form').reset();
-
-    // consollogga adderade användare
-    console.warn('added' , {users} );    
-
-    // Rubrik på drop-down listan
-    let flip = document.querySelector('#flip');
-    flip.textContent = `${user.firstName }` + `${ user.lastName}`;
-
-    // Innehåll i drop-down listan
-    let listFirstName = document.querySelector('#listFirstName')
-    listFirstName.textContent = user.firstName;
-    let listLastName = document.querySelector('#listLastName')
-    listLastName.textContent = user.lastName;
-    let listId = document.querySelector('#listId')
-    listId.textContent = user.id;
-    let listEmail = document.querySelector('#listEmail')
-    listEmail.textContent = user.email;
-    let listPhone = document.querySelector('#listPhone')
-    listPhone.textContent = user.phoneNumber;
-    let listStreet = document.querySelector('#listStreet')
-    listStreet.textContent = user.street;
-    let listPostalCode = document.querySelector('#listPostalCode')
-    listPostalCode.textContent = user.postalCode + user.city;
-
-}
-
-// Validerar all inputs
-let inputs = document.getElementsByTagName('input')
- 
-for (let input of inputs) {
-    input.addEventListener('keyup', (e) => {
-        if(e.target.value.length < 2)  {
-            document.getElementById(`${e.target.id}-error`).innerText = 'För få tecken '
-            document.getElementById(`${e.target.id}`).style.border = "3px solid red"
-            document.getElementById('button').disabled = true;
-            } 
-
-        else {
-            document.getElementById(`${e.target.id}-error`).innerText = ''
-            document.getElementById(`${e.target.id}`).style.border = "3px solid green"
-            document.getElementById('button').disabled = false
-        }
-    })
-}
-
-
-// validera Email
-
-var mail = document.getElementById('email');
-var mailvalidate = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-
-mail.addEventListener('keyup', e => {
-  if(mailvalidate.test(mail.value)) {
-    document.getElementById('email').style.border = "3px solid green"
-    document.getElementById(`${e.target.id}-error`).innerText = ''
-    
-  }  
-  else {
-    document.getElementById('email').style.border = "3px solid red"
-    document.getElementById(`${e.target.id}-error`).innerText = 'Detta är ingen giltig email-adress'
-  }
-
-})
- 
-// validera PostalCode
-var postalcode = document.getElementById('postalCode');
-var validatenumbers = /^[-+]?[0-9]+$/;
-
-document.getElementById('postalCode').addEventListener('keyup', (e) => {
-    if(e.target.value.length !== 5 )  {
-        document.getElementById(`${e.target.id}-error`).innerText = 'Ange ett giltigt postnr'
-        document.getElementById(`${e.target.id}`).style.border = "3px solid red"
-        document.getElementById('button').disabled = true
-    }
-    else {
-        document.getElementById(`${e.target.id}-error`).innerText = ''
-        document.getElementById(`${e.target.id}`).style.border = "3px solid green"
-        document.getElementById('button').disabled = false
-    }
-})
-
-// validera City
-
-
-
-
-
-
-
-// Event Submit
-document.addEventListener('DOMContentLoaded', ()=>{
-  document.getElementById('button').addEventListener('click', addUser);
-});
-
-
-
-
-
-
-
-
+   $("body").delegate(".flip", "click", function(){
+      $(this).next(".panel").slideToggle("slow");
+       });
+ });
