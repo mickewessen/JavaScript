@@ -24,7 +24,7 @@ const Form = ({ todos, setTodos }) => {
         setDescription(e.target.value)
     }
 
-    const submitHandler = (e) => {
+    const submitHandler = (e) => {        
         e.preventDefault()
 
         setTodos([...todos,{todoname: todoname, name: name, deadline: deadline, description: description, status: false, id: uuid() }])
@@ -60,7 +60,7 @@ const Form = ({ todos, setTodos }) => {
             </div>
 
             <div className="mb-3">
-                <textarea onChange={descriptionHandler} value={description} className="form-control" id="tododesc" rows="7" placeholder="Todo description"></textarea>
+                <textarea onChange={descriptionHandler} value={description} className="form-control" id="tododesc" rows="7" placeholder="Todo description (optional)"></textarea>
             </div>
             
             <div className="mb-3">
