@@ -1,12 +1,10 @@
 #todolist {
-    font-size: 1.1rem;
-    color: gray;
+    font-size: 1.1rem;    
 
 }
 
 #todolist .todo {
     font-weight: bold;
-    color: black;
 }
 
 #todolist .name .description{
@@ -18,3 +16,19 @@
     font-size: 1.4em;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.status-done {
+    color: #198754;
+}
+
+.status-not-done {
+    color: red;
+    
+}
+
+.navbar-text {
+    font-size: 2rem;
+}

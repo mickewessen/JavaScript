@@ -1,7 +1,7 @@
 import React from 'react'
 import Todo from './Todo'
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, setTodos }) => {
     
     if(todos.length === 0) {
         return (
@@ -13,7 +13,13 @@ const TodoList = ({ todos }) => {
         
     return (
         <div id="todolist" className="mb-5">
-            <Todo />
+            
+        {
+            todos.map(todo => (
+                <Todo key={todo.id} todo={todo} todos={todos} setTodos={setTodos}/>
+            ))
+        }
+
         </div>
     )
 }

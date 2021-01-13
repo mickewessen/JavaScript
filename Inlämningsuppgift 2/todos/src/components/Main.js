@@ -13,7 +13,7 @@ const Main = () => {
                     <Form todos={todos} setTodos={setTodos}/>
                 </div>
                 <div className="col-7 ps-3">
-                    <TodoList todos={todos}/>
+                    <TodoList todos={todos} setTodos={setTodos}/>
                 </div>
             </div>
         </main>
