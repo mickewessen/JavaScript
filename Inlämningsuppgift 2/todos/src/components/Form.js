@@ -8,15 +8,26 @@ const Form = ({ todos, setTodos }) => {
     const [deadline, setDeadline] = useState ('')
     const [description, setDescription] = useState ('')
 
-    const todoHandler = (e) => {
+    const [submitState, setSubmitState] = useState (true)
+
+    const todoHandler = (e) => { 
         setTodoname(e.target.value)
     }
-
-    const nameHandler = (e) => {
+    
+    // Validerar på att ett namn måste väljas
+    const nameHandler = (e) => {   
+        if(e.target.value) {
+            document.getElementById('error').innerText = ""
+            setSubmitState(false)  
+        }      
+        else {
+            document.getElementById('error').innerText ="You have to choose a person from the list"
+            setSubmitState(true)  
+        }                
         setName(e.target.value)
     }
 
-    const deadlineHandler = (e) => {
+    const deadlineHandler = (e) => {        
         setDeadline(e.target.value)
     }
 
@@ -24,11 +35,19 @@ const Form = ({ todos, setTodos }) => {
         setDescription(e.target.value)
     }
 
+
     const submitHandler = (e) => {        
         e.preventDefault()
-
         setTodos([...todos,{todoname: todoname, name: name, deadline: deadline, description: description, status: false, id: uuid() }])
+        setTodoname('')
+        setName('')
+        setDeadline('')
+        setDescription('')
+        setSubmitState(true)
+    }
 
+    const resetHandler =(e) =>{
+        e.preventDefault()
         setTodoname('')
         setName('')
         setDeadline('')
@@ -38,20 +57,30 @@ const Form = ({ todos, setTodos }) => {
     return (
         <form>
             <div className="mb-3">
+                <label htmlFor="todoname" className="form-label">Pick a todo</label>
                 <select onChange={todoHandler} value={todoname} id="todoname" className="form-select" aria-label="Default select example">
-                        <option value="">List of todos</option>
+                        <option value=""></option>
                         <option value="Clean The House">Clean the house</option>
                         <option value="Take out the garbage">Take out the garbage</option>
                         <option value="Do the dishes">Do the dishes</option>
-                        <option value="walk the dog">Walk the dog</option>
+                        <option value="Walk the dog">Walk the dog</option>
                         <option value="Make the beds">Make the beds</option>
                         <option value="Mown the garden">Mown the garden</option>
                 </select>
             </div>
 
             <div className="mb-3">
-                <label htmlFor="name" className="form-label">Enter a name:</label>
-                <input onChange={nameHandler} value={name} type="text" className="form-control" id="name" placeholder="Who is responsible for the todo"/>
+            <label htmlFor="name" className="form-label">Choose a person</label>
+                <select onChange={nameHandler} value={name} id="name" className="form-select" aria-label="Default select example">
+                        <option value=""></option>
+                        <option value="Michael Wessén">Michael Wessén</option>
+                        <option value="Daniel Wessén">Daniel Wessén</option>
+                        <option value="Samuel Wessén">Samuel Wessén</option>
+                        <option value="Kenneth Wessén">Kenneth Wessén</option>
+                        <option value="Maud Wessén">Maud Wessén</option>
+                        <option value="Sofie Lesnik">Sofie Lesnik</option>
+                </select>
+                <div id="error"></div>
             </div>
 
             <div className="mb-3">
@@ -63,8 +92,9 @@ const Form = ({ todos, setTodos }) => {
                 <textarea onChange={descriptionHandler} value={description} className="form-control" id="tododesc" rows="7" placeholder="Todo description (optional)"></textarea>
             </div>
             
-            <div className="mb-3">
-                <button onClick={submitHandler} type="submit" className="btn btn-secondary w-100 p-3">Add new Todo</button>
+            <div id="div-buttons" className="mb-3">
+                <button id="button" onClick={submitHandler} disabled={submitState} type="submit" className="btn btn-secondary p-3">Add new Todo</button>
+                <button id="reset" onClick={resetHandler} className="btn btn-secondary p-3">Reset form</button>
             </div>
         </form>
     )

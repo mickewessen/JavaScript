@@ -21,14 +21,34 @@
 }
 
 .status-done {
-    color: #198754;
+    color: #198754;    
+    transform: rotate(180deg);
 }
 
+
 .status-not-done {
-    color: red;
-    
+    color: red;    
 }
 
 .navbar-text {
     font-size: 2rem;
 }
+
+#error {
+    margin-top: 0.5rem;
+    color: red;
+}
+
+#trashcan {
+    color: #6c757d;
+}
+
+#trashcan:hover .fa-trash:before{   
+    content: "\f82a";
+}
+
+#div-buttons{
+  display: flex;
+  justify-content: space-between;
+}
+
