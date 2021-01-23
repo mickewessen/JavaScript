@@ -11,19 +11,26 @@ const Form = ({ todos, setTodos }) => {
     const [submitState, setSubmitState] = useState (true)
 
     const todoHandler = (e) => { 
+        if(e.target.value !== '') {            
+            document.getElementById('error').innerText = "Thank you"
+            document.getElementById('error').style.color = "green"
+            document.getElementById('todoname').style.border = '2px solid green'
+            setSubmitState(false)  
+        }        
+
+        else {
+            document.getElementById('todoname').style.border = '2px solid red'
+            document.getElementById('error').innerText ="You have to choose a todo"
+            document.getElementById('error').style.color = "red"
+            setSubmitState(true)  
+        }  
         setTodoname(e.target.value)
-    }
-    
+    }    
+
+
     // Validerar på att ett namn måste väljas
     const nameHandler = (e) => {   
-        if(e.target.value) {
-            document.getElementById('error').innerText = ""
-            setSubmitState(false)  
-        }      
-        else {
-            document.getElementById('error').innerText ="You have to choose a person from the list"
-            setSubmitState(true)  
-        }                
+              
         setName(e.target.value)
     }
 
@@ -34,7 +41,6 @@ const Form = ({ todos, setTodos }) => {
     const descriptionHandler = (e) => {
         setDescription(e.target.value)
     }
-
 
     const submitHandler = (e) => {        
         e.preventDefault()
@@ -52,7 +58,7 @@ const Form = ({ todos, setTodos }) => {
         setName('')
         setDeadline('')
         setDescription('')
-    }
+    }    
 
     return (
         <form>
@@ -67,10 +73,11 @@ const Form = ({ todos, setTodos }) => {
                         <option value="Make the beds">Make the beds</option>
                         <option value="Mown the garden">Mown the garden</option>
                 </select>
+                <div id="error">Please choose a todo</div>
             </div>
 
             <div className="mb-3">
-            <label htmlFor="name" className="form-label">Choose a person</label>
+            <label htmlFor="name" className="form-label">Choose a person (optional)</label>
                 <select onChange={nameHandler} value={name} id="name" className="form-select" aria-label="Default select example">
                         <option value=""></option>
                         <option value="Michael Wessén">Michael Wessén</option>
@@ -80,11 +87,10 @@ const Form = ({ todos, setTodos }) => {
                         <option value="Maud Wessén">Maud Wessén</option>
                         <option value="Sofie Lesnik">Sofie Lesnik</option>
                 </select>
-                <div id="error"></div>
             </div>
 
             <div className="mb-3">
-                <label htmlFor="deadline" className="form-label">Deadline:</label>
+                <label htmlFor="deadline" className="form-label">Deadline: (optional)</label>
                 <input onChange={deadlineHandler} value={deadline} type="date" className="form-control" id="deadline" placeholder="Pick a date"/>
             </div>
 
